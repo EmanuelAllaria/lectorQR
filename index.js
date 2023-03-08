@@ -21,7 +21,7 @@ navigator.mediaDevices.getUserMedia({video: {facingMode: 'environment'}})
                 });
 
                 if (code) {
-                    resultado.textContent = code.data;
+                    resultado = code.data;
                 }
             }
 
