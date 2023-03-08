@@ -12,8 +12,8 @@ navigator.mediaDevices.getUserMedia({video: {facingMode: 'environment'}})
 
         function tick() {
             if (video.readyState === video.HAVE_ENOUGH_DATA) {
-                canvas.width = video.videoWidth;
-                canvas.height = video.videoHeight;
+                canvas.width = "100%";
+                canvas.height = "100%";
                 canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
                 const imageData = canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height);
                 const code = jsQR(imageData.data, imageData.width, imageData.height, {
