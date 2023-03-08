@@ -1,5 +1,5 @@
 const canvas = document.getElementById('canvas');
-const resultado = document.querySelector('#resultado a').href;
+const resultado = document.getElementById('resultado a');
 
 navigator.mediaDevices.getUserMedia({video: {facingMode: 'environment'}})
     .then(stream => {
@@ -21,7 +21,7 @@ navigator.mediaDevices.getUserMedia({video: {facingMode: 'environment'}})
                 });
 
                 if (code) {
-                    resultado = code.data;
+                    resultado.textContent = code.data;
                 }
             }
 
