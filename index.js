@@ -1,5 +1,5 @@
 const canvas = document.getElementById('canvas');
-const resultado = document.getElementById('resultado');
+const resultado = document.querySelector('#resultado a').href;
 
 navigator.mediaDevices.getUserMedia({video: {facingMode: 'environment'}})
     .then(stream => {
