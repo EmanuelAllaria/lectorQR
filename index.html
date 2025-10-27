@@ -1,14 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Lector de códigos QR</title>
 
     <link rel="stylesheet" href="css.css">
 </head>
 <body>
-    <canvas id="canvas"></canvas>
-    <div id="resultado"></div>
+    <header class="app-header">
+        <h1>📷 Lector de códigos QR</h1>
+        <p class="subtitle">Colocá el QR dentro del recuadro para escanear</p>
+    </header>
+
+    <main class="container">
+        <section class="scanner">
+            <div class="video-wrapper">
+                <canvas id="canvas"></canvas>
+                <div class="overlay">
+                    <div class="scan-area"></div>
+                    <div id="status" class="status">Preparando cámara…</div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="btnToggleScan" class="btn">Pausar</button>
+                <button id="btnSwitchCamera" class="btn">Cambiar cámara</button>
+                <button id="btnTorch" class="btn" disabled>Linterna</button>
+                <label class="btn file-btn">
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                    Subir imagen
+                </label>
+            </div>
+        </section>
+
+        <aside class="panel">
+            <h2>Resultado</h2>
+            <div id="resultado" class="resultado" aria-live="polite"></div>
+            <div class="result-actions">
+                <button id="btnCopy" class="btn" disabled>Copiar</button>
+                <button id="btnOpen" class="btn" disabled>Abrir</button>
+                <button id="btnClearResult" class="btn" disabled>Limpiar</button>
+            </div>
+
+            <h2>Historial</h2>
+            <ul id="historial" class="historial"></ul>
+            <div class="panel-actions">
+                <button id="btnClearHistory" class="btn btn-secondary">Limpiar historial</button>
+                <label class="checkbox">
+                    <input type="checkbox" id="autoPause" checked>
+                    Auto-pausar al detectar
+                </label>
+            </div>
+        </aside>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script>
     <script src="index.js"></script>
